@@ -1,0 +1,17 @@
+# Anote la versión exacta instalada (pip freeze) en la Tabla 2 de la tesis.
+langchain-text-splitters>=0.3
+chromadb>=0.5
+pymupdf>=1.24
+pytesseract>=0.3.10
+pillow>=10
+pyyaml>=6
+requests>=2.31
+python-dotenv>=1.0
+streamlit>=1.38
+# Evaluación (opcional, solo para la fase de pruebas)
+ragas>=0.2
+datasets>=2.20
+scipy>=1.13
+statsmodels>=0.14
+langchain-ollama>=0.2
+langchain-openai>=0.2

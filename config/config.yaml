@@ -1,0 +1,42 @@
+# Configuración FIJA durante toda la evaluación (requisito de estabilidad).
+# Cambiar de modelo = editar solo este archivo. El sistema no depende del modelo.
+
+llm:
+  proveedor: ollama            # ollama | openai_compatible
+  modelo: qwen2.5:3b-instruct  # anote la etiqueta/digest exacto (ollama show)
+  url_base: http://localhost:11434
+  # Ejemplo API gratuita (Groq / OpenRouter / Gemini con endpoint compatible OpenAI):
+  # proveedor: openai_compatible
+  # modelo: llama-3.1-8b-instant
+  # url_base: https://api.groq.com/openai/v1
+  temperatura: 0.0
+  max_tokens: 700
+  semilla: 42
+  timeout_s: 180
+
+embeddings:
+  proveedor: ollama            # ollama | openai_compatible
+  modelo: bge-m3               # multilingüe, buen español
+  url_base: http://localhost:11434
+  prefijo_consulta: ""         # p. ej. "query: " para modelos e5
+  prefijo_documento: ""        # p. ej. "passage: " para modelos e5
+
+ocr:
+  idioma: spa
+  dpi: 300
+  min_caracteres_pagina: 40    # menos texto nativo que esto => se aplica OCR
+
+fragmentacion:
+  tamano: 800                  # caracteres (tamaño moderado)
+  solapamiento: 120
+
+recuperacion:
+  top_k: 4
+  umbral_similitud: 0.35       # por debajo => el sistema se abstiene (no llama al LLM)
+
+rutas:
+  pdf: data/pdf
+  texto: data/texto            # texto extraído, revisado y corregido a mano
+  chroma: data/chroma
+  logs: data/logs/consultas.jsonl
+  coleccion: normativa_esis
